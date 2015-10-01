@@ -3,6 +3,9 @@ FROM debian:jessie
 # persistent / runtime deps
 RUN apt-get update && apt-get install -y ca-certificates curl libpcre3 librecode0 libsqlite3-0 libxml2 --no-install-recommends && rm -r /var/lib/apt/lists/*
 
+# Add git
+RUN apt-get update && apt-get install -y git openssh-client patch less rsync --no-install-recommends && rm -r /var/lib/apt/lists/*
+
 # phpize deps
 RUN apt-get update && apt-get install -y autoconf file g++ gcc libc-dev make pkg-config re2c --no-install-recommends && rm -r /var/lib/apt/lists/*
 
